@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallCenterV1", "CallCenterV1.csproj", "{7BA9B930-424C-451E-8C2D-B7DDAE74855F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication8", "..\WebApplication8\WebApplication8.csproj", "{848681C9-3108-4E0C-B135-C369D793A5AF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7BA9B930-424C-451E-8C2D-B7DDAE74855F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA9B930-424C-451E-8C2D-B7DDAE74855F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA9B930-424C-451E-8C2D-B7DDAE74855F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{848681C9-3108-4E0C-B135-C369D793A5AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{848681C9-3108-4E0C-B135-C369D793A5AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{848681C9-3108-4E0C-B135-C369D793A5AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{848681C9-3108-4E0C-B135-C369D793A5AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

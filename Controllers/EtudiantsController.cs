@@ -46,6 +46,7 @@ namespace CallCenterV1.Controllers
         // GET: Etudiants/Create
         public IActionResult Create()
         {
+            ViewData["IdGroupe"] = new SelectList(_context.Groups, "Id", "Nom");
             return View();
         }
 
@@ -62,6 +63,7 @@ namespace CallCenterV1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdGroupe"] = new SelectList(_context.Groups, "Id", "Nom",etudiant.IDGroupe);
             return View(etudiant);
         }
 

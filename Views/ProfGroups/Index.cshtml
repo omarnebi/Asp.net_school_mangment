@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CallCenterV1.Models.ProfGroup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<partial name="hedar" />
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-dark"><i class="fa fa-plus-square"></i>Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prof)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prof.nom)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.GroupID}) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

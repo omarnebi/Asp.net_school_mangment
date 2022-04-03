@@ -78,6 +78,39 @@ namespace CallCenterV1.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("CallCenterV1.Models.Prof", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("nom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("specialite")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Profs");
+                });
+
+            modelBuilder.Entity("CallCenterV1.Models.ProfGroup", b =>
+                {
+                    b.Property<int>("ProfID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GroupID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProfID", "GroupID");
+
+                    b.HasIndex("GroupID");
+
+                    b.ToTable("ProfGroups");
+                });
+
             modelBuilder.Entity("CallCenterV1.Models.Etudiant", b =>
                 {
                     b.HasOne("CallCenterV1.Models.Group", "Group")
@@ -87,9 +120,35 @@ namespace CallCenterV1.Migrations
                     b.Navigation("Group");
                 });
 
+            modelBuilder.Entity("CallCenterV1.Models.ProfGroup", b =>
+                {
+                    b.HasOne("CallCenterV1.Models.Group", "Group")
+                        .WithMany("profGroups")
+                        .HasForeignKey("GroupID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CallCenterV1.Models.Prof", "Prof")
+                        .WithMany("profGroups")
+                        .HasForeignKey("ProfID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Prof");
+                });
+
             modelBuilder.Entity("CallCenterV1.Models.Group", b =>
                 {
                     b.Navigation("Etudiants");
+
+                    b.Navigation("profGroups");
+                });
+
+            modelBuilder.Entity("CallCenterV1.Models.Prof", b =>
+                {
+                    b.Navigation("profGroups");
                 });
 #pragma warning restore 612, 618
         }

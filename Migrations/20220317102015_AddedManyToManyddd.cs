@@ -1,0 +1,45 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace CallCenterV1.Migrations
+{
+    public partial class AddedManyToManyddd : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "GroupProf");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "GroupProf",
+                columns: table => new
+                {
+                    GroupsId = table.Column<int>(type: "int", nullable: false),
+                    profsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupProf", x => new { x.GroupsId, x.profsId });
+                    table.ForeignKey(
+                        name: "FK_GroupProf_Groups_GroupsId",
+                        column: x => x.GroupsId,
+                        principalTable: "Groups",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupProf_Profs_profsId",
+                        column: x => x.profsId,
+                        principalTable: "Profs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupProf_profsId",
+                table: "GroupProf",
+                column: "profsId");
+        }
+    }
+}

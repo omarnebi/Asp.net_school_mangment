@@ -1,0 +1,34 @@
+﻿@model CallCenterV1.Models.ProfGroup
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<partial name="hedar" />
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProfGroup</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Group)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Group.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prof)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prof.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProfID" />
+        <input type="hidden" asp-for="GroupID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

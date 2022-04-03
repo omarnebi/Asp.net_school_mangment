@@ -8,6 +8,8 @@ namespace CallCenterV1.Models
 {
     public class Etudiant
     {
+   
+
         public int Id { get; set; }
         public string Nom { get; set; }
         public string prenomn { get; set; }
@@ -18,6 +20,7 @@ namespace CallCenterV1.Models
         public String Image { get; set; }
         [ForeignKey("Groupe")]
         public int IDGroupe { get; set; }
-        public Group Group { get; set; }
+        public virtual Group Group { get; set; }
+
     }
 }

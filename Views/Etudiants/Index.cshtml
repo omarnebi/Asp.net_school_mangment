@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<partial name="hedar" />
+<h4>Gestion des Etudiants</h4>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"  class="btn btn-outline-dark" ><i class="fa fa-plus-square"></i>Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped mt-4">
+    <thead class="">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nom)
@@ -40,38 +40,40 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.prenomn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateNaissiance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnneBac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Niveau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialite)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IDGroupe)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prenomn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateNaissiance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnneBac)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Niveau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDGroupe)
+                </td>
+                <td>
+                   
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info" aria-hidden="true"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

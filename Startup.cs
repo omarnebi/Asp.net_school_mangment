@@ -36,6 +36,9 @@ namespace CallCenterV1
                             .AddEntityFrameworkStores<ApplicationDbContext>()
                             .AddDefaultUI()
                             .AddDefaultTokenProviders();
+            services.AddDbContext<SchoolContext>(options =>
+              options.UseSqlServer(
+                  Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
